@@ -281,7 +281,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 6
 --- !u!114 &189220456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,12 +291,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 189220450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aff226369707c864f9c91e8a8bb60c9b, type: 3}
+  m_Script: {fileID: 11500000, guid: 92cebc830222e604895ad548145bbd8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 12
-  moveTime: 10
-  pushForce: 1000
+  speed: 2
+  distance: 5
+  pushForce: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,6 +580,7 @@ GameObject:
   - component: {fileID: 979330030}
   - component: {fileID: 979330031}
   - component: {fileID: 979330032}
+  - component: {fileID: 979330033}
   m_Layer: 0
   m_Name: Shinobi
   m_TagString: Player
@@ -614,6 +615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1872c39207443624f95f2c9966fa1887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 979330031}
   speed: 5
   jumpForce: 12
 --- !u!50 &979330028
@@ -776,6 +778,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6260716ae9b26a6458616c5038d1a321, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &979330033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979330025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 566ba8768c74577419f3a2e74fab8341, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1203894866

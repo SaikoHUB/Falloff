@@ -1,4 +1,6 @@
+using UnityEditor.Rendering;
 using UnityEngine;
+
 
 public class Movement : MonoBehaviour
 {
@@ -8,7 +10,9 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.mass = 2f;
         rb.gravityScale = 2f;
+        rb.freezeRotation = true; // Ensure the Rigidbody2D does not rotate
     }
+   public Animator animator;
     public float speed = 5f;
     public float jumpForce = 12f;
     private Rigidbody2D rb;
@@ -18,7 +22,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.freezeRotation = true;
+        rb.freezeRotation = true; // Ensure the Rigidbody2D does not rotate
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,6 +40,14 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        bool pressW = Input.GetKeyDown(KeyCode.W);
+        
+        if ( pressW )
+        {
+            transform.position = new Vector3(0, 0, 0);
+            Debug.Log ("Teleporting to 0,0,0");
+        }
+
         float moveInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
 
