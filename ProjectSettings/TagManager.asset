@@ -9,6 +9,9 @@ TagManager:
   - Deco
   - Dead
   - DeadZone
+  - HardRock
+  - MediumRock
+  - EasyRock
   layers:
   - Default
   - TransparentFX
@@ -55,9 +58,6 @@ TagManager:
   - name: Bird
     uniqueID: 1065502849
     locked: 0
-  - name: Player
-    uniqueID: 2920006379
-    locked: 0
   - name: Map
     uniqueID: 3754141605
     locked: 0
@@ -66,6 +66,9 @@ TagManager:
     locked: 0
   - name: BAckGround
     uniqueID: 1050133277
+    locked: 0
+  - name: Player
+    uniqueID: 2920006379
     locked: 0
   - name: Default
     uniqueID: 0

@@ -25,21 +25,21 @@ public class BirdFly : MonoBehaviour
         // Determine the direction of movement
         if (newPosition > distance / 2 && !movingRight)
         {
-            Flip();
+            Flip(true); // Face right
             movingRight = true;
         }
         else if (newPosition <= distance / 2 && movingRight)
         {
-            Flip();
+            Flip(false); // Face left
             movingRight = false;
         }
     }
 
-    void Flip()
+    void Flip(bool faceRight)
     {
         // Flip the bird by inverting the x scale
         Vector3 theScale = transform.localScale;
-        theScale.x *= -1;
+        theScale.x = faceRight ? Mathf.Abs(theScale.x) : -Mathf.Abs(theScale.x);
         transform.localScale = theScale;
     }
 

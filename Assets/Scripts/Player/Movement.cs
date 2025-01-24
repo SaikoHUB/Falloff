@@ -40,14 +40,6 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        bool pressW = Input.GetKeyDown(KeyCode.W);
-        
-        if ( pressW )
-        {
-            transform.position = new Vector3(0, 0, 0);
-            Debug.Log ("Teleporting to 0,0,0");
-        }
-
         float moveInput = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(moveInput * speed, rb.linearVelocity.y);
 

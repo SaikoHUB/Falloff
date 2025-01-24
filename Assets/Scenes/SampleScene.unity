@@ -533,6 +533,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &816303426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 816303427}
+  - component: {fileID: 816303428}
+  m_Layer: 0
+  m_Name: Asteroide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &816303427
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816303426}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 911589132}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &816303428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816303426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c8e66140063f9b469ef2e0818f5755d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidPrefabs:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  shadowPrefab: {fileID: 7654446530748584347, guid: 94231b336534f11439f3b8adb65af0d2, type: 3}
+  minAsteroids: 3
+  maxAsteroids: 5
+  spawnInterval: 10
+  spawnAreaMin: {x: -10, y: 10, z: -10}
+  spawnAreaMax: {x: 10, y: 20, z: 10}
 --- !u!1 &911589131
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,6 +617,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 189220451}
+  - {fileID: 816303427}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &979330025
@@ -803,7 +858,7 @@ GameObject:
   - component: {fileID: 1203894867}
   - component: {fileID: 1203894869}
   - component: {fileID: 1203894868}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Deco
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -75568,7 +75623,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  distance: 3
+  distance: 2
 --- !u!50 &2052344536
 Rigidbody2D:
   serializedVersion: 5

@@ -5,12 +5,14 @@ public class MovPlat : MonoBehaviour
     public float speed = 2f;
     public float distance = 5f;
     private Vector3 startPos;
+    private Vector3 targetPos;
     private bool movingRight = true;
     private Rigidbody2D rb;
 
     void Start()
     {
         startPos = transform.position;
+        targetPos = startPos + new Vector3(distance, 0, 0);
         rb = GetComponent<Rigidbody2D>();
         if (rb == null)
         {
@@ -19,30 +21,32 @@ public class MovPlat : MonoBehaviour
         else
         {
             rb.bodyType = RigidbodyType2D.Kinematic; // Utilisez bodyType à la place de isKinematic
+            rb.gravityScale = 0; // Assurez-vous que la gravité est désactivée
         }
     }
 
     void Update()
     {
-        if (movingRight)
+        // Move the platform towards the target position
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
+
+        // Check if the platform has reached the target position
+        if (Vector3.Distance(transform.position, targetPos) < 0.01f)
         {
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
-            if (transform.position.x >= startPos.x + distance)
+            // Switch direction
+            if (movingRight)
             {
-                movingRight = false;
+                targetPos = startPos - new Vector3(distance, 0, 0);
             }
-        }
-        else
-        {
-            transform.Translate(Vector2.left * speed * Time.deltaTime);
-            if (transform.position.x <= startPos.x - distance)
+            else
             {
-                movingRight = true;
+                targetPos = startPos + new Vector3(distance, 0, 0);
             }
+            movingRight = !movingRight;
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -50,7 +54,7 @@ public class MovPlat : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
